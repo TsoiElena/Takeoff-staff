@@ -1,0 +1,50 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "qwr",
+      "mail": "1@1.ru",
+      "password": "1"
+    },
+    {
+      "id": 2,
+      "name": "567",
+      "mail": "1@2.ru",
+      "password": "2"
+    }
+  ],
+  "contacts": [
+    {
+      "userId": 1,
+      "id": "C4Vw35FyTRKp4_CTumREK",
+      "company": "DunterMiflin",
+      "name": "tunchik",
+      "phone": "7890",
+      "email": "tunchik@dunter.ru"
+    },
+    {
+      "userId": 1,
+      "id": "L77-3tx_Psi1lTyR8X5E0",
+      "company": "soft",
+      "name": "tim",
+      "phone": "9090",
+      "email": "tin@soft.ru"
+    },
+    {
+      "userId": 1,
+      "id": "fsiAHN7nwiGLnpCxXJG93",
+      "company": "",
+      "name": "jen",
+      "phone": "6669",
+      "email": ""
+    },
+    {
+      "userId": 2,
+      "id": "fsiAHN7nwiGLnpCxXJG93",
+      "company": "",
+      "name": "jen",
+      "phone": "6669",
+      "email": ""
+    }
+  ]
+}
