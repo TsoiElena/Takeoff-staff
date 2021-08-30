@@ -1,18 +1,23 @@
 import React, {useEffect} from 'react'
 import api from 'api'
-import {makeStyles} from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-import AddModal from "components/Contacts/AddModal";
-import EditModal from "components/Contacts/EditModal";
-import {TextField} from "@material-ui/core";
+import {makeStyles} from '@material-ui/core/styles'
+import Card from '@material-ui/core/Card'
+import CardActions from '@material-ui/core/CardActions'
+import CardContent from '@material-ui/core/CardContent'
+import Button from '@material-ui/core/Button'
+import Typography from '@material-ui/core/Typography'
+import AddModal from 'components/Contacts/AddModal'
+import EditModal from 'components/Contacts/EditModal'
+import {TextField} from '@material-ui/core'
 
 const useStyles = makeStyles(() => ({
         root: {
-            minWidth: 275,
+            height: '200px',
+            width: '400px',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-between',
+            margin: '20px'
         },
         bullet: {
             display: 'inline-block',
@@ -25,26 +30,35 @@ const useStyles = makeStyles(() => ({
         phone: {
             marginBottom: 12,
         },
+        search: {
+            display: 'flex',
+            justifyContent: 'space-between',
+            paddingTop: '15px',
+        },
+        contacts: {
+            display: 'flex',
+            flexWrap: 'wrap',
+        }
     })
-);
+)
 
 const Contacts = ({user, contacts, loading, setContacts, setLoading}) => {
+    const classes = useStyles()
     const [addModal, setAddModal] = React.useState(false)
     const [editModal, setEditModal] = React.useState(null)
     const [term, setTerm] = React.useState('')
 
-
-    const classes = useStyles()
-
-    const deleteContact = async (id) => {
+    const deleteContact = async id => {
         setLoading(true)
-        api.delete(`contacts/${id}`).then(() => {
-            setLoading(false)
-            setContacts(contacts.filter(item => item.id !== id))
-        }).catch(error => {
-            setLoading(false)
-            console.error(error)
-        })
+        api.delete(`contacts/${id}`)
+            .then(() => {
+                setLoading(false)
+                setContacts(contacts.filter(item => item.id !== id))
+            })
+            .catch(error => {
+                setLoading(false)
+                console.error(error)
+            })
     }
 
     useEffect(() => {
@@ -60,21 +74,28 @@ const Contacts = ({user, contacts, loading, setContacts, setLoading}) => {
                 })
         }, [term]
     )
-    console.log(contacts);
     return (
         <div>
-            <div>
-                <h1>Contacts</h1>
+            <div className={classes.search}>
+                <Typography variant="h5">Contacts</Typography>
                 <TextField
                     label="enter name"
                     required
                     type="text"
                     value={term}
-                    onChange={(e) => setTerm(e.target.value)}
+                    onChange={e => setTerm(e.target.value)}
+                    style={{width: 450}}
                 />
-                <Button size="small" onClick={() => setAddModal(true)}>Add Contact</Button>
+                <Button size="small"
+                        variant="outlined"
+                        color="primary"
+                        onClick={() => setAddModal(true)}
+                        style={{height: 30}}
+                >
+                    Add Contact
+                </Button>
             </div>
-            <div>
+            <div className={classes.contacts}>
                 {
                     contacts && contacts.length
                         ? contacts.map(contact => <Card className={classes.root} variant="outlined" key={contact.id}>
@@ -93,18 +114,31 @@ const Contacts = ({user, contacts, loading, setContacts, setLoading}) => {
                                 </Typography>}
                             </CardContent>
                             <CardActions>
-                                <Button size="small" onClick={() => setEditModal(contact.id)}>Edit</Button>
-                                <Button size="small" onClick={() => deleteContact(contact.id)}>Delete</Button>
+                                <Button size="small" variant="outlined" color="primary"
+                                        onClick={() => setEditModal(contact.id)}>Edit</Button>
+                                <Button size="small" variant="outlined" color="primary"
+                                        onClick={() => deleteContact(contact.id)}>Delete</Button>
                             </CardActions>
                         </Card>
                         )
-                        : loading ? null : <h3>Not found</h3>
+                        : loading ? null : <Typography variant="h5">Not Found</Typography>
                 }
             </div>
-            <AddModal open={addModal} setOpen={setAddModal} userId={user.id} contacts={contacts}
-                      setContacts={setContacts} setLoading={setLoading}/>
-            <EditModal contactId={editModal} setOpen={setEditModal} contacts={contacts} setContacts={setContacts}
-                       setLoading={setLoading}/>
+            <AddModal
+                open={addModal}
+                setOpen={setAddModal}
+                userId={user.id}
+                contacts={contacts}
+                setContacts={setContacts}
+                setLoading={setLoading}
+            />
+            <EditModal
+                contactId={editModal}
+                setOpen={setEditModal}
+                contacts={contacts}
+                setContacts={setContacts}
+                setLoading={setLoading}
+            />
         </div>
     )
 }

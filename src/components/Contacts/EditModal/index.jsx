@@ -4,6 +4,7 @@ import {makeStyles} from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button'
 import Modal from '@material-ui/core/Modal'
 import {TextField} from '@material-ui/core'
+import Typography from '@material-ui/core/Typography'
 
 const useStyles = makeStyles(theme => ({
         paper: {
@@ -18,10 +19,18 @@ const useStyles = makeStyles(theme => ({
             left: '0',
             right: '0',
         },
+        form: {
+            display: 'flex',
+            flexDirection: 'column',
+            width: '300px',
+        },
+        input: {
+            paddingBottom: '10px'
+        }
     })
-);
+)
 
-const EditModal = ({contactId, setOpen, contacts, setContacts, setLoading}) => {
+const EditModal = ({contactId, contacts, setOpen, setContacts, setLoading}) => {
     const reg = /^[0-9\b]+$/
     const classes = useStyles()
 
@@ -32,14 +41,14 @@ const EditModal = ({contactId, setOpen, contacts, setContacts, setLoading}) => {
         email: '',
     })
 
-    const handleChange = (e) => {
+    const handleChange = e => {
         const {value} = e.target
         if (!value) return setContactData({...contactData, phone: ''})
         if (!reg.test(value)) return
         setContactData({...contactData, phone: value})
     }
 
-    const editContact = async (e) => {
+    const editContact = async e => {
         e.preventDefault()
         setOpen(null)
         setLoading(true)
@@ -47,7 +56,7 @@ const EditModal = ({contactId, setOpen, contacts, setContacts, setLoading}) => {
             setLoading(false)
             setContacts(contacts.map(item => {
                 if (item.id === contactId) {
-                    const newItem = {
+                    const newContact = {
                         userId: item.userId,
                         id: item.id,
                         name: res.data.name,
@@ -55,7 +64,7 @@ const EditModal = ({contactId, setOpen, contacts, setContacts, setLoading}) => {
                         phone: res.data.phone,
                         email: res.data.email
                     }
-                    return newItem
+                    return newContact
                 }
                 return item
             }))
@@ -84,36 +93,41 @@ const EditModal = ({contactId, setOpen, contacts, setContacts, setLoading}) => {
             onClose={() => setOpen(null)}
         >
             <div className={classes.paper}>
-                <h2>Edit contact</h2>
+                <Typography variant="h5">Edit contact</Typography>
                 <form
                     autoComplete="off"
                     onSubmit={editContact}
+                    className={classes.form}
                 >
                     <TextField
                         label="Name"
                         required
                         type="text"
+                        className={classes.input}
                         value={contactData.name}
-                        onChange={(e) => setContactData({...contactData, name: e.target.value})}
+                        onChange={e => setContactData({...contactData, name: e.target.value})}
                     />
                     <TextField
                         label="Company"
                         type="text"
+                        className={classes.input}
                         value={contactData.company}
-                        onChange={(e) => setContactData({...contactData, company: e.target.value})}
+                        onChange={e => setContactData({...contactData, company: e.target.value})}
                     />
                     <TextField
                         label="Phone"
                         required
                         type="text"
+                        className={classes.input}
                         value={contactData.phone}
                         onChange={handleChange}
                     />
                     <TextField
-                        label="Email"
+                        label="E-mail"
                         type="email"
+                        className={classes.input}
                         value={contactData.email}
-                        onChange={(e) => setContactData({...contactData, email: e.target.value})}
+                        onChange={e => setContactData({...contactData, email: e.target.value})}
                     />
                     <Button
                         variant="outlined"

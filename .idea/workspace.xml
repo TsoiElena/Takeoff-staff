@@ -20,26 +20,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1f42d614-6466-40be-be32-b0b231c48181" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/takeoff-staff.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/api/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/App.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/AuthCheck/index.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Contacts/AddModal/index.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Contacts/EditModal/index.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Contacts/index.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Header/index.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Login/index.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/theme.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/db.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Contacts/AddModal/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Contacts/AddModal/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Contacts/EditModal/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Contacts/EditModal/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Contacts/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Contacts/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Login/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Login/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,6 +63,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/Contacts" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2020.2.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -110,8 +102,16 @@
       <option name="presentableId" value="Default" />
       <updated>1629917831431</updated>
       <workItem from="1629917832898" duration="9509000" />
-      <workItem from="1630081942889" duration="27061000" />
+      <workItem from="1630081942889" duration="35640000" />
     </task>
+    <task id="LOCAL-00001" summary="welldone">
+      <created>1630250569090</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1630250569090</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -128,6 +128,10 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="welldone" />
+    <option name="LAST_COMMIT_MESSAGE" value="welldone" />
   </component>
   <component name="WindowStateProjectService">
     <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1629922181867">

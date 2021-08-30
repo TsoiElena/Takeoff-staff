@@ -1,17 +1,36 @@
 import React from 'react';
 import api from 'api'
-import {TextField} from '@material-ui/core';
-import Button from '@material-ui/core/Button';
-import {Redirect} from "react-router-dom";
+import {TextField} from '@material-ui/core'
+import Button from '@material-ui/core/Button'
+import {Redirect} from 'react-router-dom'
+import {makeStyles} from '@material-ui/core/styles'
+import Typography from '@material-ui/core/Typography'
+
+const useStyles = makeStyles(() => ({
+        wrapper: {
+            paddingTop: '30px',
+            paddingLeft: '40%'
+        },
+        form: {
+            display: 'flex',
+            flexDirection: 'column',
+            width: '300px'
+        },
+        input: {
+            paddingBottom: '10px'
+        }
+    })
+)
 
 const Login = ({user, setUser, setLoading}) => {
+    const classes = useStyles()
     const [loginData, setLoginData] = React.useState({
-        email: '1@1.ru',
-        password: '1'
+        email: '',
+        password: ''
     })
     const [error, setError] = React.useState(false)
 
-    const handleLogin = async (e) => {
+    const handleLogin = async e => {
         e.preventDefault()
         setLoading(true)
         api.get(`/users?mail=${loginData.email}&password=${loginData.password}`)
@@ -32,36 +51,39 @@ const Login = ({user, setUser, setLoading}) => {
     if (user) return <Redirect to='/contacts'/>
 
     return (
-        <div>
+        <div className={classes.wrapper}>
             <div>
-                <h3>Авторизация</h3>
+                <Typography variant="h4">Authorization</Typography>
             </div>
             <form
                 autoComplete="off"
                 onSubmit={handleLogin}
+                className={classes.form}
             >
                 <TextField
-                    label="Эл. почта"
+                    label="E-mail"
                     required
                     type="email"
                     value={loginData.email}
-                    onChange={(e) => setLoginData({...loginData, email: e.target.value})}
+                    onChange={e => setLoginData({...loginData, email: e.target.value})}
                     error={error}
+                    className={classes.input}
                 />
                 <TextField
-                    label="Пароль"
+                    label="Password"
                     required
                     type="password"
                     value={loginData.password}
-                    onChange={(e) => setLoginData({...loginData, password: e.target.value})}
+                    onChange={e => setLoginData({...loginData, password: e.target.value})}
                     error={error}
+                    className={classes.input}
                 />
                 <Button
                     variant="outlined"
                     color="primary"
                     type="submit"
                 >
-                    Войти
+                    log in
                 </Button>
             </form>
         </div>
